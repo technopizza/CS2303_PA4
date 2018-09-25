@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-<<<<<<< HEAD
-		<cconfiguration id="org.eclipse.cdt.core.default.config.1835706390">
-			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1835706390" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
-=======
-		<cconfiguration id="org.eclipse.cdt.core.default.config.1615144963">
-			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1615144963" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
->>>>>>> refs/remotes/origin/master
+		<cconfiguration id="org.eclipse.cdt.core.default.config.1325284672">
+			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1325284672" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
 				<externalSettings/>
 				<extensions/>
 			</storageModule>
