@@ -6,9 +6,11 @@
  *      Author: jconklin
  */
 
+class World;
+
 #ifndef ORGANISM_H_
 #define ORGANISM_H_
-#include "world.h"
+
 
 class Organism{
 protected:

@@ -6,6 +6,7 @@
  */
 
 #include "organism.h"
+#include "world.h"
 #include <cstdlib>
 /** constructor for organism
  * @param row organism row location
@@ -50,7 +51,7 @@ void Organism::breed(World world) {
 	if (mCol > 0) { //check left bound
 		tmp = world.getOrganism(mRow, mCol - 1); //get Organism at (row, col)
 		if (!tmp) { //no organism at (row, col)
-			neighbors[n] = tmp;
+			//neighbors[n] = tmp;
 			neighborX[n] = -1;
 			neighborY[n] = 0;
 			n++;
@@ -59,7 +60,7 @@ void Organism::breed(World world) {
 	if (mCol < world.getSize()) { //check right bound
 		tmp = world.getOrganism(mRow, mCol + 1); //get Organism at (row, col)
 		if (!tmp) { //no organism at (row, col)
-			neighbors[n] = tmp;
+			//neighbors[n] = tmp;
 			neighborX[n] = 1;
 			neighborY[n] = 0;
 			n++;
@@ -68,7 +69,7 @@ void Organism::breed(World world) {
 	if (mRow > 0) { //check lower bound
 		tmp = world.getOrganism(mRow - 1, mCol); //get Organism at (row, col)
 		if (!tmp) { //no organism at (row, col)
-			neighbors[n] = tmp;
+			//neighbors[n] = tmp;
 			neighborX[n] = 0;
 			neighborY[n] = -1;
 			n++;
@@ -77,7 +78,7 @@ void Organism::breed(World world) {
 	if (mRow < world.getSize()) { //check upper bound
 		tmp = world.getOrganism(mRow + 1, mCol); //get Organism at (row, col)
 		if (!tmp) { //no organism at (row, col)
-			neighbors[n] = tmp;
+			//neighbors[n] = tmp;
 			neighborX[n] = 0;
 			neighborY[n] = 1;
 			n++;
@@ -85,7 +86,11 @@ void Organism::breed(World world) {
 	}
 	//randomly elect one of the neighbors
 	int neighbor = (rand() % (n + 1));
-	world.setOrganism(neighborY[n], neighborX[n], neighbor[n]);
+	Organism child = new Organism(neighborY[n], neighborX[n]);
+	Organism * childP = &child;
+	int i =  neighborY[n];
+	int j = neighborX[n];
+	//world.setOrganism(i, j, (Organism *) childP);
 }
 
 void Organism::move(World world) {
@@ -134,6 +139,6 @@ void Organism::move(World world) {
 	//randomly elect one of the neighbors
 	int neighbor = (rand() % (n + 1));
 	Organism* null;
-	world.setOrganism(neighborY[n], neighborX[n], this);
-	world.setOrganism(mRow, mCol, null);
+	//world.setOrganism(neighborY[n], neighborX[n], this);
+	//world.setOrganism(mRow, mCol, null);
 }

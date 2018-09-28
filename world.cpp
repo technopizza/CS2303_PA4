@@ -12,7 +12,7 @@ using std::endl;
 #include "world.h"
 #include "ant.h"
 #include "doodlebug.h"
-#include"organism.h"
+#include "organism.h"
 
 /**Constructor for the world, fills it with nulls.
  *

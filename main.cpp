@@ -49,8 +49,8 @@ int main (int argc, char **argv) {
 		doPause = atoi(argv[6]);
 	}
 	//making the world
-	World AWholeNewWorld = new World(gridSize, startNumAnts, startNumDoodles);
-
+	World aWholeNewWorld = new World(gridSize, startNumAnts, startNumDoodles);
+	aWholeNewWorld.displayTheworld();
 
 	return 0;
 }

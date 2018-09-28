@@ -4,16 +4,21 @@
  *  Created on: Sep 25, 2018
  *      Author: kdesrosiers
  */
+#include <iostream>
+#include <cstdlib>
 
 #ifndef WORLD_H_
 #define WORLD_H_
-#include <iostream>
-#include <cstdlib>
-#include "organism.h"
+
+class Organism;
+
 class World {
 private:
 	//const int MAXSIZE;
-	Organism **aWorld;
+	Organism** aWorld;
+
+	//Organism test;
+
 	int _gridSize;
 	int _startNumAnts;
 	int _startNumDoodles;
