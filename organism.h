@@ -1,3 +1,4 @@
+
 /*
  * organism.h
  *
@@ -7,6 +8,7 @@
 
 #ifndef ORGANISM_H_
 #define ORGANISM_H_
+#include "world.h"
 
 class Organism{
 protected:
@@ -19,7 +21,7 @@ public:
 	void setCol(int col);
 	int getCol();
 	void move(World world);
-	void breed();
+	void breed(World world);
 	bool isPrey();
 };
 

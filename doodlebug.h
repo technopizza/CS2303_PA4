@@ -15,6 +15,8 @@ private:
 public:
 	Doodlebug(int row, int col);
 	void starve();
+
+	bool isPrey();
 };
 
 #endif /* DOODLEBUG_H_ */

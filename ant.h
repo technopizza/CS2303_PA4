@@ -1,3 +1,4 @@
+
 /*
  * ant.h
  *
@@ -13,6 +14,8 @@ private:
 	int mBreedTime;
 public:
 	Ant(int row, int col);
+
+	bool isPrey();
 };
 
 #endif /* ANT_H_ */
