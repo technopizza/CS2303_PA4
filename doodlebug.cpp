@@ -7,6 +7,7 @@
 #include "organism.h"
 #include "doodlebug.h"
 #include "world.h"
+#include <cstdlib>
 
 Doodlebug::Doodlebug(int row, int col) :
 		Organism(row, col) {
@@ -18,9 +19,10 @@ bool Doodlebug::isPrey() {
 	return false;
 }
 void Doodlebug::update(World world) {
+	Organism * null;
 	if (mStarveTime >= STARVE_TIME) {
 		delete (world.getOrganism(mRow, mCol));
-		world.setOrganism(mRow, mCol, NULL);
+		world.setOrganism(mRow, mCol, null);
 		return;
 	} else {
 		mStarveTime++;
@@ -33,9 +35,10 @@ void Doodlebug::update(World world) {
 	}
 }
 void Doodlebug::move(World world) {
+	Organism * null;
 	int n = 0;
 	int nPrey = 0;
-	Organism** neighbors = new Organism*[4];
+	//Organism** neighbors = new Organism*[4];
 	int* preyX = new int[4];
 	int* preyY = new int[4];
 	int* neighborX = new int[4];
@@ -100,16 +103,15 @@ void Doodlebug::move(World world) {
 	}
 	//randomly elect one of the neighbors
 	int neighbor;
-	if(nPrey){
+
+	if (nPrey) {
 		neighbor = (rand() % (nPrey + 1));
-		world.setOrganism(preyY[n], preyX[n], this);
-		world.setOrganism(mRow, mCol, NULL);
-	}else if(n){
+		world.setOrganism(preyY[neighbor], preyX[neighbor], this);
+		world.setOrganism(mRow, mCol, null);
+	} else if (n) {
 		neighbor = (rand() % (n + 1));
-				world.setOrganism(neighborY[n], neighborX[n], this);
-				world.setOrganism(mRow, mCol, NULL);
+		world.setOrganism(neighborY[neighbor], neighborX[neighbor], this);
+		world.setOrganism(mRow, mCol, null);
 	}
-
-
 
 }

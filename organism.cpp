@@ -87,8 +87,8 @@ bool Organism::breed(World world) {
 	//randomly elect one of the neighbors
 	if(n > 0){
 		int neighbor = (rand() % (n + 1));
-			Organism child = new Organism(neighborY[neighbor], neighborX[neighbor]);
-			world.setOrganism(neighborY[neighbor], neighborX[neighbor], &child);
+			Organism* child = new Organism(neighborY[neighbor], neighborX[neighbor]);
+			world.setOrganism(neighborY[neighbor], neighborX[neighbor], child);
 			return true;
 	}
 	return false;
@@ -96,7 +96,7 @@ bool Organism::breed(World world) {
 
 void Organism::move(World world) {
 	int n = 0;
-	Organism** neighbors = new Organism*[4];
+	//Organism** neighbors = new Organism*[4];
 	int* neighborX = new int[4];
 	int* neighborY = new int[4];
 	Organism* tmp;
@@ -139,7 +139,7 @@ void Organism::move(World world) {
 	}
 	//randomly elect one of the neighbors
 	int neighbor = (rand() % (n + 1));
-	world.setOrganism(neighborY[n], neighborX[n], this);
+	world.setOrganism(neighborY[neighbor], neighborX[neighbor], this);
 	world.setOrganism(mRow, mCol, NULL);
 }
 void Organism::update(World world){

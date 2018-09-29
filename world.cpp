@@ -178,3 +178,4 @@ Organism* World::getOrganism(int row, int column) {
 void World::setOrganism(int row, int column, Organism * t) {
 	aWorld[row][column] = t;
 }
+
