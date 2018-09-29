@@ -41,7 +41,7 @@ int Organism::getCol() {
 	return mCol;
 }
 
-void Organism::breed(World world) {
+bool Organism::breed(World world) {
 	int n = 0;
 	Organism** neighbors = new Organism*[4];
 	int* neighborX = new int[4];
@@ -85,12 +85,13 @@ void Organism::breed(World world) {
 		}
 	}
 	//randomly elect one of the neighbors
-	int neighbor = (rand() % (n + 1));
-	Organism child = new Organism(neighborY[n], neighborX[n]);
-	Organism * childP = &child;
-	int i =  neighborY[n];
-	int j = neighborX[n];
-	//world.setOrganism(i, j, (Organism *) childP);
+	if(n > 0){
+		int neighbor = (rand() % (n + 1));
+			Organism child = new Organism(neighborY[neighbor], neighborX[neighbor]);
+			world.setOrganism(neighborY[neighbor], neighborX[neighbor], &child);
+			return true;
+	}
+	return false;
 }
 
 void Organism::move(World world) {
@@ -138,7 +139,9 @@ void Organism::move(World world) {
 	}
 	//randomly elect one of the neighbors
 	int neighbor = (rand() % (n + 1));
-	Organism* null;
-	//world.setOrganism(neighborY[n], neighborX[n], this);
-	//world.setOrganism(mRow, mCol, null);
+	world.setOrganism(neighborY[n], neighborX[n], this);
+	world.setOrganism(mRow, mCol, NULL);
+}
+void Organism::update(World world){
+	breed(world);
 }

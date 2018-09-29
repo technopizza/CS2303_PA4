@@ -8,15 +8,19 @@
 #ifndef DOODLEBUG_H_
 #define DOODLEBUG_H_
 
-class Doodlebug{
+class Organism;
+class World;
+
+class Doodlebug : Organism{
 private:
-	int breedTime;
-	int starveTime;
+	int mBreedTime;
+	int mStarveTime;
+	static const int BREED_TIME = 8;
+	static const int STARVE_TIME = 3;
 public:
 	Doodlebug(int row, int col);
-	void starve();
-
 	bool isPrey();
-};
-
+	void move(World world);
+	void update(World world);
+	};
 #endif /* DOODLEBUG_H_ */
