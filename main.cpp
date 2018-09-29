@@ -48,6 +48,8 @@ int main (int argc, char **argv) {
 	if (argc == 7) {
 		doPause = atoi(argv[6]);
 	}
+	if (argc < 2) {
+	}
 	//making the world
 	World aWholeNewWorld = new World(gridSize, startNumAnts, startNumDoodles);
 	aWholeNewWorld.displayTheworld();

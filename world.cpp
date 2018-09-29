@@ -22,7 +22,7 @@ World::World(int space, int ants, int doodles) {
 	_startNumAnts = ants;
 	_startNumDoodles = doodles;
 	_gridSize = space;
-	unsigned int i;
+	int i;
 	aWorld = new Organism*[_gridSize];
 	for (i = 0; i < _gridSize; i++) {
 		aWorld[i] = new Organism[_gridSize];
@@ -167,11 +167,11 @@ int World::currentNumDoodle() {
  */
 /*void world::playOne() {
 	// move every doodlebug
-
 }*/
 
 Organism* World::getOrganism(int row, int column) {
-	Organism* x = aWorld[row][column];
+	Organism* x = new Organism(row, column);
+	//= aWorld[row][column];
 	return x;
 }
 
