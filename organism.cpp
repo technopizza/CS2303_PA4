@@ -11,6 +11,7 @@
 /** constructor for organism
  * @param row organism row location
  * @param col organism col location
+ * @return new Organism object
  */
 Organism::Organism(int row, int col) {
 	mRow = row;
@@ -40,7 +41,10 @@ void Organism::setCol(int col) {
 int Organism::getCol() {
 	return mCol;
 }
-
+/** Looks for an empty neighbor adjacent to this organism and spawns a new organism there
+ * @param world the world to spawn in
+ * @return boolean that corresponsd to whether or not a new organism was spawned
+ */
 bool Organism::breed(World world) {
 	int n = 0;
 	Organism** neighbors = new Organism*[4];
@@ -93,7 +97,9 @@ bool Organism::breed(World world) {
 	}
 	return false;
 }
-
+/** if possible, moves an organism to an unoccupied neighbor
+ * @param world the world to manipulate
+ */
 void Organism::move(World world) {
 	int n = 0;
 	//Organism** neighbors = new Organism*[4];
@@ -142,6 +148,9 @@ void Organism::move(World world) {
 	world.setOrganism(neighborY[neighbor], neighborX[neighbor], this);
 	world.setOrganism(mRow, mCol, NULL);
 }
+/** Updates status of organism in world
+ * @param world the world in which to manipulate the organism
+ */
 void Organism::update(World world){
 	breed(world);
 }

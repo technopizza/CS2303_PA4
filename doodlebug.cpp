@@ -8,16 +8,25 @@
 #include "doodlebug.h"
 #include "world.h"
 #include <cstdlib>
-
+/** constructor for Doodlebug; invokes superclass constructor
+ * @param row organism row location
+ * @param col organism col location
+ * @return new D object
+ */
 Doodlebug::Doodlebug(int row, int col) :
 		Organism(row, col) {
 	mBreedTime = 0;
 	mStarveTime = 0;
 }
-
+/** determines if Doodlebug is prey
+ * @return boolean corresponding to prey status
+ */
 bool Doodlebug::isPrey() {
 	return false;
 }
+/** Updates status of Doodlebug in world, checks for starving and breeding
+ * @param world the world in which to manipulate the organism
+ */
 void Doodlebug::update(World world) {
 	Organism * null;
 	if (mStarveTime >= STARVE_TIME) {
@@ -34,6 +43,9 @@ void Doodlebug::update(World world) {
 		mBreedTime++;
 	}
 }
+/** if possible, moves a doodlebug to an unoccupied neighbor
+ * @param world the world to manipulate
+ */
 void Doodlebug::move(World world) {
 	Organism * null;
 	int n = 0;
